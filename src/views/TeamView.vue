@@ -14,7 +14,7 @@ team.fill();
 
 <template>
   <main class="p-5">
-    <TeamHeader />
+    <TeamHeader @add="showModal = true" />
     <div class="flex justify-center p-5">
       <div class="place-self-center flex flex-col gap-y-3" style="width: 725px">
         <TeamMembers />
@@ -22,7 +22,9 @@ team.fill();
     </div>
 
     <TeamFooter />
-    <ModalMessage :show="showModal" />
+    <ModalMessage @close="showModal = false" :show="showModal">
+      <template #default>override body</template>
+    </ModalMessage>
   </main>
 </template>
 
