@@ -15,10 +15,7 @@
       />
     </tbody>
   </table>
-  <p
-    v-show="team.members.length === team.spots"
-    class="text-right text-gray-600 italic"
-  >
+  <p v-show="!team.spotsRemaining" class="text-right text-gray-600 italic">
     There are no remaining team spots. Upgrade to add more.
   </p>
 </template>

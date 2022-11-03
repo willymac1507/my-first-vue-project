@@ -1,3 +1,17 @@
+<script setup>
+import TeamHeader from "@/components/Teams/TeamHeader.vue";
+import TeamMembers from "@/components/Teams/TeamMembers.vue";
+import TeamFooter from "@/views/TeamFooter.vue";
+import { useTeamStore } from "@/stores/TeamStore.js";
+import ModalMessage from "@/components/ModalMessage.vue";
+import { ref } from "vue";
+
+let team = useTeamStore();
+let showModal = ref(false);
+
+team.fill();
+</script>
+
 <template>
   <main class="p-5">
     <TeamHeader />
@@ -8,16 +22,8 @@
     </div>
 
     <TeamFooter />
+    <ModalMessage :show="showModal" />
   </main>
 </template>
 
-<script setup>
-import TeamHeader from "@/components/Teams/TeamHeader.vue";
-// import team from "@/team.json";
-import TeamMembers from "@/components/Teams/TeamMembers.vue";
-import TeamFooter from "@/views/TeamFooter.vue";
-import { useTeamStore } from "@/stores/TeamStore.js";
-let team = useTeamStore();
-
-team.fill();
-</script>
+<style />
