@@ -22,9 +22,28 @@ team.fill();
     </div>
 
     <TeamFooter />
-    <ModalMessage @close="showModal = false" :show="showModal">
-      <template #default>override body</template>
-    </ModalMessage>
+    <Teleport to="body">
+      <ModalMessage @close="showModal = false" :show="showModal">
+        <template #default>
+          <p>Add a new member to the team.</p>
+          <form class="mt-6">
+            <div class="flex gap-2">
+              <input
+                class="flex-1"
+                type="email"
+                name="email"
+                placeholder="Email Address..."
+              />
+              <button
+                class="bg-blue-700 text-white hover:bg-blue-900 rounded-md py-1 px-2"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+        </template>
+      </ModalMessage>
+    </Teleport>
   </main>
 </template>
 
